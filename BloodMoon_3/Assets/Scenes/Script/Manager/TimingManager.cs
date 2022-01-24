@@ -18,6 +18,7 @@ public class TimingManager : MonoBehaviour
     StageManager theStage;
     PlayerController thePlayer;
     StatusManager theStatus;
+    AudioManager theAudio;
 
 
     void Start()
@@ -28,6 +29,7 @@ public class TimingManager : MonoBehaviour
         theStage = FindObjectOfType<StageManager>();
         thePlayer = FindObjectOfType<PlayerController>();
         theStatus = FindObjectOfType<StatusManager>();
+        theAudio = AudioManager.instance;
 
         timingBoxs = new Vector2[timingRect.Length];
 
@@ -68,6 +70,8 @@ public class TimingManager : MonoBehaviour
                         // Normal 이미지 뜨게끔. 점수 반영도 X
                         theEffect.JudgementEffect(5);
                     }
+
+                    theAudio.PlaySFX("Clap");
 
                     return true;
                 }
