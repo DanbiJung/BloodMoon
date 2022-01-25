@@ -43,6 +43,18 @@ public class PlayerController : MonoBehaviour
         theStatus = FindObjectOfType<StatusManager>();
     }
 
+    public void Initialized()
+    {
+        transform.position = Vector3.zero;
+        destPos = Vector3.zero;
+        realCube.localPosition = Vector3.zero;
+        canMove = true;
+        s_canPressKey = true;
+        isFalling = false;
+        myRigid.useGravity = false;
+        myRigid.isKinematic = true;
+    }
+
     void Update()
     {
         if (GameManager.instance.isStartGame)
@@ -159,6 +171,7 @@ public class PlayerController : MonoBehaviour
     public void ResetFalling()
     {
         theStatus.DecreaseHp(1);
+        AudioManager.instance.PlaySFX("Falling");
 
         if (!theStatus.Isdead())
         {

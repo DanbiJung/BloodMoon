@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource bgmPlayer = null;
     [SerializeField] AudioSource[] sfxPlayer = null;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }

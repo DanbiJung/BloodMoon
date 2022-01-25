@@ -113,6 +113,11 @@ public class TimingManager : MonoBehaviour
         theStatus.ResetShieldCombo();
     }
 
+    public void Initialized()
+    {
+        for (int i = 0; i < judgementRecord.Length; i++)
+            judgementRecord[i] = 0;
+    }
 
 }
 

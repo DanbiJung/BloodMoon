@@ -10,9 +10,23 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public bool isStartGame = false;
 
+    ComboManager theCombo;
+    ScoreManager theScore;
+    TimingManager theTiming;
+    StatusManager theStatus;
+    PlayerController thePlayer;
+    StageManager theStage;
+
     private void Start()
     {
         instance = this; // 싱글톤
+
+        theCombo = FindObjectOfType<ComboManager>();
+        theScore = FindObjectOfType<ScoreManager>();
+        theTiming = FindObjectOfType<TimingManager>();
+        theStatus = FindObjectOfType<StatusManager>();
+        thePlayer = FindObjectOfType<PlayerController>();
+        theStage = FindObjectOfType<StageManager>();
     }
 
     public void GameStart()
@@ -21,6 +35,15 @@ public class GameManager : MonoBehaviour
         {
             goGameUI[i].SetActive(true);
         }
+
+        theStage.RemoveStage();
+        theStage.SettingsStage();
+        theCombo.ResetCombo();
+        theScore.Initialized();
+        theTiming.Initialized();
+        thePlayer.Initialized();
+        theStatus.Initialized();
+
         isStartGame = true;
     }
 

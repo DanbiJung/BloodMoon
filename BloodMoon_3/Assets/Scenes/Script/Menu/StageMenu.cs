@@ -6,9 +6,15 @@ using UnityEngine;
 public class StageMenu : MonoBehaviour
 {
     [SerializeField] GameObject TitleMenuUI = null;
+    [SerializeField] GameObject resultUI = null;
+
+    
+    
 
     public void BtnBack()  // 버튼 이벤트 등록
     {
+       
+
         TitleMenuUI.SetActive(true); // 타이틀 메뉴 활성화
         this.gameObject.SetActive(false); // 스테이지 비활
     }
