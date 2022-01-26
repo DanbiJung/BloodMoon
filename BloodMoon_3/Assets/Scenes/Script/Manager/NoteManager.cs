@@ -31,7 +31,7 @@ public class NoteManager : MonoBehaviour
             currentTime += Time.deltaTime;
 
 
-            if (currentTime >= 60d / bpm) // 60/bpm = 한 비트당 시간 (120bpm이라면 한 비트당 소요 시간은 0.5초)
+            if (currentTime >= 60d / bpm) 
 
             {
             GameObject t_note = ObjectPool.instance.noteQueue.Dequeue();
