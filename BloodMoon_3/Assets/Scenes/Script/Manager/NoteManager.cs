@@ -10,7 +10,7 @@ public class NoteManager : MonoBehaviour
     
 
     [SerializeField] Transform tfNoteAppear = null; // 노트 생성 위치 오브젝트
-    [SerializeField] GameObject goNote = null; // 생성할 노트 프리팹
+
 
     TimingManager theTimingManager;
     EffectManager theEffect;

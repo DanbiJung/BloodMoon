@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
     StatusManager theStatus;
     PlayerController thePlayer;
     StageManager theStage;
+    NoteManager theNote;
+    [SerializeField] CenterFlame theMusic = null;
 
     private void Start()
     {
         instance = this; // 싱글톤
-
+        theNote = FindObjectOfType<NoteManager>();
         theCombo = FindObjectOfType<ComboManager>();
         theScore = FindObjectOfType<ScoreManager>();
         theTiming = FindObjectOfType<TimingManager>();
@@ -29,20 +31,23 @@ public class GameManager : MonoBehaviour
         theStage = FindObjectOfType<StageManager>();
     }
 
-    public void GameStart()
+    public void GameStart(int p_songNum, int p_bpm)
     {
         for (int i = 0; i < goGameUI.Length; i++)
         {
             goGameUI[i].SetActive(true);
         }
-
+        theMusic.bgmName = "BGM" + p_songNum;
+        theNote.bpm = p_bpm;
         theStage.RemoveStage();
-        theStage.SettingsStage();
+        theStage.SettingsStage(p_songNum);
         theCombo.ResetCombo();
         theScore.Initialized();
         theTiming.Initialized();
         thePlayer.Initialized();
         theStatus.Initialized();
+
+        AudioManager.instance.StopBGM();
 
         isStartGame = true;
     }

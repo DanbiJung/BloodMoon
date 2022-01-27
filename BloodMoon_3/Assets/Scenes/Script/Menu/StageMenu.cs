@@ -23,18 +23,22 @@ public class StageMenu : MonoBehaviour
 
 
     [SerializeField] GameObject TitleMenuUI = null;
-    [SerializeField] GameObject resultUI = null;
+
 
     int currentSong = 0;
 
     public void BtnNext()
     {
+        AudioManager.instance.PlaySFX("Touch");
+
         if (++currentSong > songList.Length - 1)
             currentSong = 0;
     }
 
     public void BtnPrior()
     {
+        AudioManager.instance.PlaySFX("Touch");
+
         if (--currentSong < 0)
             currentSong = songList.Length - 1;
     }
@@ -59,7 +63,9 @@ public class StageMenu : MonoBehaviour
 
     public void BtnPlay()  // 버튼 이벤트 등록
     {
-        GameManager.instance.GameStart(); // 게임 매니저를 통해 게임 스타트 (밑에서 작성)
+        int t_bpm = songList[currentSong].bpm;
+
+        GameManager.instance.GameStart(currentSong, t_bpm); 
         this.gameObject.SetActive(false); // 스테이지 비활
     }
 }
