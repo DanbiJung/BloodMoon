@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     PlayerController thePlayer;
     StageManager theStage;
     NoteManager theNote;
+    Result theResult;
+
     [SerializeField] CenterFlame theMusic = null;
 
     private void Start()
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         theStatus = FindObjectOfType<StatusManager>();
         thePlayer = FindObjectOfType<PlayerController>();
         theStage = FindObjectOfType<StageManager>();
+        theResult = FindObjectOfType<Result>();
     }
 
     public void GameStart(int p_songNum, int p_bpm)
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
         theTiming.Initialized();
         thePlayer.Initialized();
         theStatus.Initialized();
+        theResult.SetCurrentSong(p_songNum);
 
         AudioManager.instance.StopBGM();
 

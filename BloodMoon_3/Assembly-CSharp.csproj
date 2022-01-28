@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scenes\Script\DeadZone.cs" />
     <Compile Include="Assets\Scenes\Script\Manager\AudioManager.cs" />
     <Compile Include="Assets\Scenes\Script\Manager\ComboManager.cs" />
+    <Compile Include="Assets\Scenes\Script\Manager\DatabaseManager.cs" />
     <Compile Include="Assets\Scenes\Script\Manager\EffectManager.cs" />
     <Compile Include="Assets\Scenes\Script\Manager\GameManager.cs" />
     <Compile Include="Assets\Scenes\Script\Manager\Note.cs" />
