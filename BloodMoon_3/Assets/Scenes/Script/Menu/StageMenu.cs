@@ -60,7 +60,7 @@ public class StageMenu : MonoBehaviour
     {
         txtSongName.text = songList[currentSong].name;
         txtSongComposer.text = songList[currentSong].composer;
-        txtSongScore.text = string.Format("0:#,##0", theDatabase.score[currentSong]);
+        txtSongScore.text = string.Format("{0:#,##0}", theDatabase.score[currentSong]);
         imgDisk.sprite = songList[currentSong].sprite;
 
         AudioManager.instance.PlayBGM("BGM" + currentSong);
